@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:users][:password])
             session[:user_id] = @user.id
             # redirect to home page or user profile (TODO)
+            redirect_to movies_path
         elsif @user
             @errors = ["Invalid Password"]
             render "new"

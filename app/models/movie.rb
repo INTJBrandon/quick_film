@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
-    has_many :bought_tickets
-    has_many :users, through: :bought_tickets
+    has_many :tickets
+    has_many :users, through: :tickets
 end

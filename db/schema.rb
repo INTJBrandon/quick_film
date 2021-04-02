@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_04_01_192445) do
 
-  create_table "bought_tickets", force: :cascade do |t|
+  create_table "movies", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "tickets", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.integer "movie_id"
     t.integer "quantity"
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

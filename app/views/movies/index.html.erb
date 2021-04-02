@@ -1,0 +1,7 @@
+<h1>List of Movies you can buy tickets for</h1>
+<% @movies.each do |movie| %>
+    <li><%= link_to movie.name, movie_path(movie) %>
+<% end %>
+
+<h3>Create New Movies</h3>
+<%= button_to "New Movie", new_movie_path, method: "get" %>

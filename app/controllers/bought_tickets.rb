@@ -1,3 +1,0 @@
-class BoughtTickets < ApplicationController
-    
-end

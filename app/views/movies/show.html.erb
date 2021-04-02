@@ -1,0 +1,7 @@
+<h1><%= @movie.name %></h1>
+<br>
+<%=link_to "Edit",  edit_movie_path(@movie)%>
+
+<%=button_to("Delete", @movie, method: :delete, data: { confirm: "Really?" }) %>
+
+<%= link_to "Buy Tickets For This Movie", new_ticket_path %>
