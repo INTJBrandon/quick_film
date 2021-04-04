@@ -9,6 +9,8 @@ class TicketsController < ApplicationController
         ticket.user_id = session[:user_id]
         ticket.name = Movie.find_by(id: ticket.movie_id).name
         ticket.save
+        redirect_to movies_path
+
         
     end
 
@@ -17,6 +19,6 @@ class TicketsController < ApplicationController
     private
 
     def ticket_params
-        params.require(:ticket).permit(:movie_id)
+        params.require(:ticket).permit(:movie_id, :quantity)
     end
 end

@@ -3,6 +3,11 @@ class MoviesController < ApplicationController
         @movies = Movie.all
     end
 
+    def topRated
+        @movies = Movie.all.top_rated
+        render "index"
+    end
+
     def show
         @movie = Movie.find_by(id: params[:id])
     end
@@ -38,6 +43,6 @@ class MoviesController < ApplicationController
     private 
 
     def movie_params
-        params.require(:movie).permit(:name)
+        params.require(:movie).permit(:name, :rated)
     end
 end

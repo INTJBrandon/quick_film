@@ -2,5 +2,7 @@
 <p>Select tickets</p>
 <%= form_for @ticket do |f| %>
     <%= f.collection_select(:movie_id, @movies, :id, :name) %>
+    <%= f.label("Quantity") %>
+    <%= f.text_field(:quantity) %>
     <%= f.submit("Buy Tickets") %>
 <% end %>

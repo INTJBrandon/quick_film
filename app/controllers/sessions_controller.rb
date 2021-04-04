@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(username: params[:user][:username])
 
-        if @user && @user.authenticate(params[:users][:password])
+
+        if @user && @user.authenticate(params[:user][:password])
+            
             session[:user_id] = @user.id
             # redirect to home page or user profile (TODO)
             redirect_to movies_path
@@ -21,6 +23,8 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        # redirect to signup or home page (TODO)
+        redirect_to movies_path
     end
+
+
 end
