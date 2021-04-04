@@ -8,6 +8,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
+  <% if logged_in? %>
+  <br>
+    <h3> Welcome <%= current_user %> </h3>
+    <%= link_to "Signout", logout_path %>
+  <% else %>
+  <br>
+    <%= link_to "login", login_path %>
+    <%= link_to "singup", signup_path %>  
+  <% end %>
+
+
 
   <body>
     <%= yield %>

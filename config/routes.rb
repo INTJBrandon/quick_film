@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :movies
   resources :tickets
 
+  resources :movies, only: [:show] do 
+    resources :tickets, only: [:new, :show]
+  end
+
   get '/signup', to: 'users#new', as: 'signup'
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new', as: 'login'
