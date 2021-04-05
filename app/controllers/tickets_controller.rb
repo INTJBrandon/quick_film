@@ -13,11 +13,15 @@ class TicketsController < ApplicationController
 
     def create
         movie = Movie.find_by(id: params[:ticket][:movie_id])
-        ticket = Ticket.new(ticket_params)
-        ticket.user_id = session[:user_id]
-        ticket.name = movie.name
-        ticket.save
-        redirect_to movie_ticket_path(movie.id, ticket.id)
+        @ticket = Ticket.new(ticket_params)
+        @ticket.user_id = session[:user_id]
+        @ticket.name = movie.name
+        if @ticket.save
+            redirect_to movie_ticket_path(movie.id, @ticket.id)
+        else
+            redirect_to movies_path
+        end
+
     end
 
     def show
