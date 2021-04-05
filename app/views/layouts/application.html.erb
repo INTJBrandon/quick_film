@@ -10,7 +10,7 @@
   </head>
   <% if logged_in? %>
   <br>
-    <h3> Welcome <%= current_user %> </h3>
+    <h3> Welcome <%= current_username %> </h3>
     <%= link_to "Signout", logout_path %>
   <% else %>
   <br>

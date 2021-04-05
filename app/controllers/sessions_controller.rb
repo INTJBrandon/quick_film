@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
             
             session[:user_id] = @user.id
-            # redirect to home page or user profile (TODO)
+            flash[:messages] = "Successfully Logged in"
             redirect_to movies_path
         elsif @user
             @errors = ["Invalid Password"]

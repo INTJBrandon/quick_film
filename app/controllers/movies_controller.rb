@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
     end
 
     def show
-        @movie = Movie.find_by(id: params[:id])
+        set_movie
     end
 
     def new
@@ -26,18 +26,18 @@ class MoviesController < ApplicationController
     end
 
     def edit
-        @movie = Movie.find_by(id: params[:id])
+        set_movie
     end
 
     def update
-        movie = Movie.find_by(id: params[:id])
-        movie.update(movie_params)
-        redirect_to movie_path(movie)
+        set_movie
+        @movie.update(movie_params)
+        redirect_to movie_path(@movie)
     end
 
     def destroy
-        movie = Movie.find_by(id: params[:id])
-        movie.delete
+        set_movie
+        @movie.delete
         redirect_to movies_path
     end
 
