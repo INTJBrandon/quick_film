@@ -1,6 +1,6 @@
 # Welcome to Quick Film
 
-The Quick Film web application allows its users to browse a collection of movies and purchase tickets for those movies! It tracks allow tickets that users has purchased for each and every movie while the profile page keeps track of the quantity. This app requires users to sign to sign up to purchase tickets, but that is very convenient through a quick and easy google sign up page. Sign up with any existing google account and you'll be purchasing tickets in no time!
+The Quick Film web application allows its users to browse a collection of movies and purchase tickets for those movies! It tracks tickets that users has purchased for each and every movie while the profile page keeps track of the quantity. This app requires users to sign up to purchase tickets, but that is very convenient through a quick and easy google sign up page. Sign up with any existing google account and you'll be purchasing tickets in no time!
 
 ## Summary
 
