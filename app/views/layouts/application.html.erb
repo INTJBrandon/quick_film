@@ -7,16 +7,39 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   </head>
+  
+
   <% if logged_in? %>
-  <br>
-    <h3> Welcome <%= current_username %> </h3>
-    <%= link_to "Signout", logout_path %>
-  <% else %>
-  <br>
-    <%= link_to "login", login_path %>
-    <%= link_to "singup", signup_path %>  
-  <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Quick Film</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/profile">Profile <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/movies">Movies</a>
+            <a class="nav-item nav-link" href="/tickets/new">Buy Tickets</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </nav>
+    <% else %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Quick Film</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/signup">Sign Up Here <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/login">Login Here</a>
+      </div>
+    </div>
+  </nav>
+    <% end %>
 
 
 
