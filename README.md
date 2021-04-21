@@ -1,24 +1,29 @@
-# README
+# Welcome to Quick Film
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Quick Film web application allows its users to browse a collection of movies and purchase tickets for those movies! It tracks allow tickets that users has purchased for each and every movie while the profile page keeps track of the quantity. This app requires users to sign to sign up to purchase tickets, but that is very convenient through a quick and easy google sign up page. Sign up with any existing google account and you'll be purchasing tickets in no time!
 
-Things you may want to cover:
+## Summary
 
-* Ruby version
+## Installing and Running The Program
+The way to use this program is to fork and clone this github repository 
+Once the github repository is on your system open it with any code editor
+Run the following snippets of code to get everything set up and running for the program
 
-* System dependencies
+    bundle install
+This will install the neccessary ruby gems onto your machine.
+To run Quick Film, type the following into your terminal to execute the application
 
-* Configuration
+    rails s
+Click on the local IP that is presented in the console to be taken to the website.
 
-* Database creation
+## Authors
+ *Brandon Tyus*
+    [Brandon Tyus](https://github.com/INTJBrandon)
 
-* Database initialization
+## License
 
-* How to run the test suite
+This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
+Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
+details
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
