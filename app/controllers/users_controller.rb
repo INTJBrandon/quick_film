@@ -11,6 +11,7 @@ class UsersController < ApplicationController
             redirect_to movies_path
         else
             @errors = @user.errors.full_messages
+            render 'new'
         end
     end
 

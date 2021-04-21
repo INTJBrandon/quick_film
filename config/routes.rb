@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :tickets, only: [:new, :show]
   end
 
+  resources :users, only: [:show] do
+    resources :tickets, only: [:index]
+  end
+
   get '/profile', to: 'users#index', as: 'profile'
   get '/signup', to: 'users#new', as: 'signup'
   post '/signup', to: 'users#create'

@@ -6,17 +6,18 @@
     <h3>Buy tickets for <%= @movie.name %> </h3>
 <% end %>
 
-<%= form_for @ticket do |f| %>
-    <% if !@movie %>
-        <%= f.label("Select Movie to buy tickets for:") %>
-        <br>
-        <%= f.collection_select(:movie_id, @movies, :id, :name) %>
-        <br>
-        <br>
-    <% else %>
-        <%= f.hidden_field :movie_id, value: @movie.id %>
+
+    <%= form_for @ticket do |f| %>
+        <% if @collection %>
+            <%= f.label("Select Movie to buy tickets for:") %>
+            <br>
+            <%= f.collection_select(:movie_id, @movies, :id, :name) %>
+            <br>
+            <br>
+        <% else %>
+            <%= f.hidden_field :movie_id, value: @movie.id %>
+        <% end %>
+        <%= f.label("Quantity: ") %>
+        <%= f.number_field(:quantity) %>
+        <%= f.submit("Buy Tickets") %>
     <% end %>
-    <%= f.label("Quantity") %>
-    <%= f.number_field(:quantity) %>
-    <%= f.submit("Buy Tickets") %>
-<% end %>

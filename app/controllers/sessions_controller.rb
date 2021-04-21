@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 
     def google_login
         user = User.find_or_create_by(username: g_auth['email']) do |u|
-            u.password = 'somethingcool'
+            u.password = SecureRandom.hex(5)
         end
         if user.save
             flash[:message] = "Login Successful!"
