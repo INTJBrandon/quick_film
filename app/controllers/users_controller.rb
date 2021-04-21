@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    before_action :redirect_if_not_logged_in, only: [:index]
     def new 
         @user = User.new
     end
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
         else
             @errors = @user.errors.full_messages
         end
+    end
+
+    def index
+        @user = current_user
     end
 
 

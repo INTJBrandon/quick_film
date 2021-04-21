@@ -16,16 +16,23 @@ class TicketsController < ApplicationController
     def create
         movie = Movie.find_by(id: params[:ticket][:movie_id])
         @ticket = Ticket.new(ticket_params)
-        @ticket.user_id = session[:user_id]
-        @ticket.name = movie.name
-        if @ticket.save
-            flash[:message] = "Tickets Purchased!"
-            redirect_to movie_ticket_path(movie.id, @ticket.id)
+        movie_id = find_movie_id(@ticket.movie_id)
+        if movie_id.blank?
+            @ticket.user_id = session[:user_id]
+            @ticket.name = movie.name
+            if @ticket.save
+                flash[:message] = "Tickets Purchased!"
+                redirect_to movie_ticket_path(movie.id, @ticket.id)
+            else
+                flash[:messages] = "Something went wrong, please try again later"
+                redirect_to movies_path
+            end
         else
-            flash[:messages] = "Something went wrong, please try again later"
-            redirect_to movies_path
+            new_quantity = movie_id[0].quantity += @ticket.quantity
+            movie_id[0].update(movie_id: movie_id[0].movie_id, quantity: new_quantity)
+            flash[:message] = "Tickets Purchased!"
+            redirect_to movie_ticket_path(movie_id[0].movie_id, movie_id[0].id )
         end
-
     end
 
     def show

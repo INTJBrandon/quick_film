@@ -1,0 +1,6 @@
+<h1>User Profile for <%= current_username %></h1>
+<h3>Here's a list of movies you've purchased tickets for:</h3>
+
+<% @user.tickets.each do |ticket| %>
+    <li> <%= ticket.name %> | <%= ticket.quantity %> tickets purchased </li> 
+<% end %>

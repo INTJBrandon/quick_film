@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'movies#index'
   get '/movies/top-rated', to: 'movies#topRated' 
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'
   resources :movies, only: [:index, :show]
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     resources :tickets, only: [:new, :show]
   end
 
+  get '/profile', to: 'users#index', as: 'profile'
   get '/signup', to: 'users#new', as: 'signup'
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new', as: 'login'
